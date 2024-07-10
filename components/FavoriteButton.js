@@ -2,14 +2,14 @@ import Image from "next/image";
 import styled from "styled-components";
 import Link from "next/link";
 
-const styledImage = styled(Image)`
+const StyledImage = styled(Image)`
   background-color: ${(props) => (props.color === "liked" ? "red" : "grey")};
 `;
 
 export default function FavoriteButton({ isFavorite, onToggleFavorite }) {
   return (
     <Link>
-      <styledImage
+      <StyledImage
         src="/public/assets/favicon.svg"
         alt="heart"
         width={24}
