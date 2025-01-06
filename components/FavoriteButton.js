@@ -1,23 +1,24 @@
-import Image from "next/image";
 import styled from "styled-components";
-import Link from "next/link";
 
-const StyledImage = styled(Image)`
-  background-color: ${(props) => (props.color === "liked" ? "red" : "grey")};
+const StyledButton = styled.button`
+  border: none;
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  background: transparent;
+  font-size: 1.5rem;
+  transition: transform 0.2s ease;
+  color: ${({ $isFavorite }) => ($isFavorite ? "#ff0000" : "#fff")};
+
+  &:hover {
+    transform: scale(1.1);
+  }
 `;
 
 export default function FavoriteButton({ isFavorite, onToggleFavorite }) {
   return (
-    <Link>
-      <StyledImage
-        src="/public/assets/favicon.svg"
-        alt="heart"
-        width={24}
-        height={24}
-        $color="liked"
-        isFavorite={isFavorite}
-        onToggleFavorite={onToggleFavorite}
-      />
-    </Link>
+    <StyledButton onClick={onToggleFavorite} isFavorite={isFavorite}>
+      {isFavorite ? "❤️" : "🤍"}
+    </StyledButton>
   );
 }
