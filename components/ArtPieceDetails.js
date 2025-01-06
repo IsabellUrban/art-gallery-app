@@ -20,6 +20,10 @@ const ImageWrapper = styled.div`
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 `;
 
+const StyledImage = styled(Image)`
+  object-fit: contain;
+`;
+
 const InfoSection = styled.div`
   background: white;
   padding: 2rem;
@@ -59,21 +63,15 @@ export default function ArtPieceDetails({
   artist,
   year,
   genre,
-  isFavorite,
-  onToggleFavorite,
 }) {
   return (
     <DetailsContainer>
       <ImageWrapper>
-        <Image
+        <StyledImage
           src={image}
           alt={title}
-          fill
+          fill 
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 200px"
-        />
-        <FavoriteButton
-          isFavorite={isFavorite}
-          onToggleFavorite={onToggleFavorite}
         />
       </ImageWrapper>
       <InfoSection>

@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
-const StyledButton = styled.button`
+const StyledButton = styled.button.withConfig({
+  shouldForwardProp: (prop) => !["isFavorite"].includes(prop),
+})`
   border: none;
   cursor: pointer;
   width: 50px;
